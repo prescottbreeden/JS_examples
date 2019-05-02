@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Messing about</title>
+</head>
+<body>
+  <h1 id="0 1">Helloooooooooo</h1> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var script1 = (function(chuckNorris) {
+
+      chuckNorris('h1').click(function() {
+        let coord = generateCoord(this.id);
+        console.log(coord);
+        chuckNorris('h1').hide();
+      });
+
+      function generateCoord(str) {
+        let coord = str.split(' ');
+        return {
+          x: coord[0],
+          y: coord[1]
+        }
+      }
+
+      function findCoord(str, coord) { 
+        let { x, y } = generateCoord(str);
+        if (x === coord.x && y === coord.y) {
+          console.log('found it');
+          return true;
+        }
+        console.log('nope');
+      }
+
+      return {
+        generateCoord,
+        findCoord
+      };
+
+    })(jQuery);
+  </script>
+</body>
+</html>
