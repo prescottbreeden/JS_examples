@@ -1,4 +1,4 @@
-// jsEnging
+// jsEngine
 function jsengine(code) {
   return code.split(/\s+/);
 }
